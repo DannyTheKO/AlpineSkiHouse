@@ -1,0 +1,31 @@
+﻿@model List<AlpineSkiHouse.Models.Ticket>;
+
+@{
+    ViewData["Title"] = "Booking Ticket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@*Booking Ticket list goes here*@
+<table class="table table-hover text-center">
+    <tr>
+        <td>ID Ticket</td>
+        <td>Customer Name</td>
+        <td>Room Number</td>
+        <td>Check In</td>
+        <td>Check Out</td>
+        <td>Action</td>
+    </tr>
+    @foreach (var ticket in Model)
+    {
+        <tr>
+            <td>@ticket.Id</td>
+            <td>@ticket.CustomerName</td>
+            <td>@ticket.RoomNumber</td>
+            <td>@ticket.CheckIn</td>
+            <td>@ticket.CheckOut</td>
+            <td>Action</td>
+        </tr>
+    }
+</table>
