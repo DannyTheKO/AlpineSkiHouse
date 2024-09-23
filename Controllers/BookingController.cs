@@ -33,22 +33,61 @@ namespace AlpineSkiHouse.Controllers
             return View("Create");
         }
 
+        // POST Request for Create
+        [HttpPost]
+        public IActionResult Create([Bind("Id", "CustomerName", "RoomNumber", "CheckIn", "CheckOut")] Ticket ticket)
+        {
+            tickets.Add(ticket);
+            return RedirectToAction("Index");
+        }
+
         // Read
         public IActionResult Read()
         {
             return View("Read");
         }
 
-        // Update
-        public IActionResult Update()
+        // Edit
+        public IActionResult Edit(int id)
         {
-            return View("Update");
+            Ticket t = tickets.SingleOrDefault(ts => ts.Id == id);
+            if (t != null)
+                return View(t);
+            else
+                return View("Index", tickets);
         }
 
-        // Remove
-        public IActionResult Remove()
+        // POST Request for Edit
+        [HttpPost]
+        public IActionResult Edit(int id, [Bind("Id", "CustomerName", "RoomNumber", "CheckIn", "CheckOut")] Ticket ticket)
         {
-            return View("Remove");
+            Ticket t = tickets.SingleOrDefault(ts => ts.Id == id);
+            if (t != null)
+            {
+                t.Id = ticket.Id;
+                t.CustomerName = ticket.CustomerName;
+                t.RoomNumber = ticket.RoomNumber;
+                t.CheckIn = ticket.CheckIn;
+                t.CheckOut = ticket.CheckOut;
+            }
+            else
+                return NotFound();
+
+            return RedirectToAction("Index");
+        }
+
+        // Delete
+        public IActionResult Delete(int id)
+        {
+            Ticket t = tickets.SingleOrDefault(ts => ts.Id == id);
+            if (t != null)
+            {
+                tickets.Remove(t);
+            }
+            else
+                NotFound();
+
+            return RedirectToAction("Index");
         }
 
 

@@ -1,14 +1,16 @@
 ﻿@model List<AlpineSkiHouse.Models.Ticket>;
 
 @{
-    ViewData["Title"] = "Booking Ticket";
+    ViewData["Title"] = "Ticket Management";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="mb-3">@ViewData["Title"]</h1>
+@*Create Ticket goes here*@
+<a asp-controller="Booking" asp-action="Create" class="btn btn-success mb-4">Create Ticket</a>
 
 @*Booking Ticket list goes here*@
-<table class="table table-hover text-center">
+<table class="table table-hover table-responsive-sm text-center justify-content-center">
     <tr>
         <td>ID Ticket</td>
         <td>Customer Name</td>
@@ -19,13 +21,18 @@
     </tr>
     @foreach (var ticket in Model)
     {
-        <tr>
-            <td>@ticket.Id</td>
-            <td>@ticket.CustomerName</td>
-            <td>@ticket.RoomNumber</td>
-            <td>@ticket.CheckIn</td>
-            <td>@ticket.CheckOut</td>
-            <td>Action</td>
-        </tr>
+    <tr>
+        <td class="align-baseline">@ticket.Id</td>
+        <td class="align-baseline">@ticket.CustomerName</td>
+        <td class="align-baseline">@ticket.RoomNumber</td>
+        <td class="align-baseline">@ticket.CheckIn</td>
+        <td class="align-baseline">@ticket.CheckOut</td>
+        <td class="align-baseline">
+            <div class="btn btn-group">
+                <a class="btn btn-warning" asp-controller="Booking" asp-route-id="@ticket.Id" asp-action="Edit">Edit</a>
+                <a class="btn btn-danger" asp-controller="Booking" asp-route-id="@ticket.Id" asp-action="Delete">Delete</a>
+            </div>
+        </td>
+    </tr>
     }
 </table>
