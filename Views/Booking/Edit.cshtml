@@ -14,7 +14,7 @@
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div> @*When user input is invalid, text will show up as invalid input*@
 			<div class="form-group">
 				<label asp-for="Id" class="form-label">ID Ticket</label>
-				<input asp-for="Id" class="form-control"/>
+				<input asp-for="Id" class="form-control" disabled/>
 				<span asp-validation-for="Id" class="text-danger"></span>
 			</div>
 
@@ -43,8 +43,8 @@
 				<span asp-validation-for="CheckOut" class="text-danger"></span>
 			</div>
 
-			<div class="btn-group">
-				<input type="submit" class="btn btn-primary" placeholder="Edit"/>
+			<div class="form-group mt-3 d-flex justify-content-between">
+				<input type="submit" class="btn btn-primary" placeholder="Edit" />
 				<a asp-action="Index" class="btn btn-secondary">Cancel</a>
 			</div>
 		</form>

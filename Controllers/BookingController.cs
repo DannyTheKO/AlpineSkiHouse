@@ -64,7 +64,7 @@ namespace AlpineSkiHouse.Controllers
             Ticket t = tickets.SingleOrDefault(ts => ts.Id == id);
             if (t != null)
             {
-                t.Id = ticket.Id;
+                //t.Id = ticket.Id;
                 t.CustomerName = ticket.CustomerName;
                 t.RoomNumber = ticket.RoomNumber;
                 t.CheckIn = ticket.CheckIn;
