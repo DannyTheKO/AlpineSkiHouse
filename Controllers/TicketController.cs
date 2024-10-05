@@ -3,8 +3,6 @@ using AlpineSkiHouse.Models;
 using AlpineSkiHouse.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
-using System.Threading.Tasks;
-using System.Linq;
 
 namespace AlpineSkiHouse.Controllers
 {

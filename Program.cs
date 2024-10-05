@@ -1,7 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using AlpineSkiHouse.Data;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure; // Add this using directive
 
 var builder = WebApplication.CreateBuilder(args);
 

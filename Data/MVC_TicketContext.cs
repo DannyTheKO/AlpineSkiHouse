@@ -1,5 +1,5 @@
-﻿using AlpineSkiHouse.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using AlpineSkiHouse.Models;
 
 namespace AlpineSkiHouse.Data
 {
